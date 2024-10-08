@@ -20,5 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Seminar1"
-include(":app")
+include(":Seminar2")
 include(":app:modulnou")

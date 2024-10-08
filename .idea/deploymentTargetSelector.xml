@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-01T14:40:54.848965Z">
+        <DropdownSelection timestamp="2024-10-07T09:51:56.848951Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=/Users/sauciucmatei/.android/avd/Pixel_8_API_34.avd" />
@@ -17,6 +17,9 @@
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="app.modulnou">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="Seminar2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
