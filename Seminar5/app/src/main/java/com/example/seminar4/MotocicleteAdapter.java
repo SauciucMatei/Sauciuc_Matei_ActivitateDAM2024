@@ -9,25 +9,25 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ElicopterAdapter extends BaseAdapter {
-    private List<Elicopter> elicoptere;
+public class MotocicleteAdapter extends BaseAdapter {
+    private List<Motocicleta> motocicletas;
     private Context ctx;
     private int resursaLayout;
 
-    public ElicopterAdapter(List<Elicopter> elicoptere, Context ctx, int resursaLayout) {
-        this.elicoptere = elicoptere;
+    public MotocicleteAdapter(List<Motocicleta> motocicletas, Context ctx, int resursaLayout) {
+        this.motocicletas = motocicletas;
         this.ctx = ctx;
         this.resursaLayout = resursaLayout;
     }
 
     @Override
     public int getCount() {
-        return elicoptere.size();
+        return motocicletas.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return elicoptere.get(position);
+        return motocicletas.get(position);
     }
 
     @Override
@@ -47,12 +47,12 @@ public class ElicopterAdapter extends BaseAdapter {
         TextView dataFabricatie = v.findViewById(R.id.data);
         TextView nou = v.findViewById(R.id.tip);
 
-        Elicopter elicopter = (Elicopter)getItem(position);
+        Motocicleta motocicleta = (Motocicleta)getItem(position);
 
-        producator.setText(elicopter.getProducator());
-        pret.setText(String.valueOf(elicopter.getPret()));
-        autonomie.setText(String.valueOf(elicopter.getAutonomie_Mile()));
-        nrLocuri.setText(String.valueOf(elicopter.getNumarLocuri()));
+        producator.setText(motocicleta.getProducator());
+        pret.setText(String.valueOf(motocicleta.getPret()));
+        autonomie.setText(String.valueOf(motocicleta.getAutonomie_Mile()));
+        nrLocuri.setText(String.valueOf(motocicleta.getNumarLocuri()));
 
         return v;
 

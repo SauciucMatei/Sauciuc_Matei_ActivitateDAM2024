@@ -19,27 +19,27 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Elicopter> elicoptere=null;
+    private List<Motocicleta> motocicletas =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.lv_imagini), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        elicoptere=new ArrayList<>();
+        motocicletas =new ArrayList<>();
 
 
         Button btn=findViewById(R.id.button1);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it=new Intent(getApplicationContext(), AdaugareElicopter.class);
+                Intent it=new Intent(getApplicationContext(), AdaugareMotocicleta.class);
                 startActivityForResult(it,403);
             }
         });
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         btnLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it =new Intent(getApplicationContext(),ListaElicoptere.class);
-                it.putParcelableArrayListExtra("elicoptere",(ArrayList<? extends Parcelable>) elicoptere);
+                Intent it =new Intent(getApplicationContext(), ListaMotociclete.class);
+                it.putParcelableArrayListExtra("motociclete",(ArrayList<? extends Parcelable>) motocicletas);
                 startActivity(it);
             }
         });
@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
         {
             if(resultCode==RESULT_OK)
             {
-                Elicopter elicopter=data.getParcelableExtra("elicopter");
-                elicoptere.add(elicopter);
-                Toast.makeText(getApplicationContext(), elicopter.toString(), Toast.LENGTH_SHORT).show();
+                Motocicleta motocicleta =data.getParcelableExtra("motocicleta");
+                motocicletas.add(motocicleta);
+                Toast.makeText(getApplicationContext(), motocicleta.toString(), Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -15,36 +15,36 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Date;
 
-public class AdaugareElicopter extends AppCompatActivity {
+public class AdaugareMotocicleta extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_adaugare_elicopter);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        setContentView(R.layout.activity_adaugare_motocicleta);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.lv_imagini), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
         Intent it = getIntent();
 
-        if (it.hasExtra("elicopter")) {
-            Elicopter elicopter = it.getParcelableExtra("elicopter");
+        if (it.hasExtra("motocicleta")) {
+            Motocicleta motocicleta = it.getParcelableExtra("motocicleta");
             EditText etProducator = findViewById(R.id.numeProducator);
-            etProducator.setText(elicopter.getProducator());
+            etProducator.setText(motocicleta.getProducator());
 
             EditText etPret = findViewById(R.id.pret);
-            etPret.setText(String.valueOf(elicopter.getPret()));
+            etPret.setText(String.valueOf(motocicleta.getPret()));
 
             EditText etAutonomie = findViewById(R.id.autonomie);
-            etAutonomie.setText(String.valueOf(elicopter.getAutonomie_Mile()));
+            etAutonomie.setText(String.valueOf(motocicleta.getAutonomie_Mile()));
 
             EditText etNrLocuri = findViewById(R.id.numarLocuri);
-            etNrLocuri.setText(String.valueOf(elicopter.getNumarLocuri()));
+            etNrLocuri.setText(String.valueOf(motocicleta.getNumarLocuri()));
 
             Spinner stTip = findViewById(R.id.tip);
-            stTip.setSelected(elicopter.isNou());
+            stTip.setSelected(motocicleta.isNou());
 
             DatePicker dp = findViewById(R.id.data);
             dp.init(dp.getYear(),dp.getMonth(),dp.getDayOfMonth(),null);
@@ -71,10 +71,10 @@ public class AdaugareElicopter extends AppCompatActivity {
 
             DatePicker dp = findViewById(R.id.data);
             Date data = new Date(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
-            Elicopter elicopter = new Elicopter(numeProducator, pret, autonomie, numarLocuri, data, nou);
+            Motocicleta motocicleta = new Motocicleta(numeProducator, pret, autonomie, numarLocuri, data, nou);
 
 
-            it.putExtra("elicopter", elicopter);
+            it.putExtra("motocicleta", motocicleta);
             setResult(RESULT_OK, it);
             finish();
         });

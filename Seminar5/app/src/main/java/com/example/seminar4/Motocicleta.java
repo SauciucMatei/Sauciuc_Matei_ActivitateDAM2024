@@ -3,11 +3,9 @@ package com.example.seminar4;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 import java.util.Date;
 
-public class Elicopter implements Parcelable
+public class Motocicleta implements Parcelable
 {
     private String producator;
     private float pret;
@@ -25,7 +23,7 @@ public class Elicopter implements Parcelable
         this.nou = nou;
     }
 
-    public Elicopter(String producator, float pret, float autonomie_Mile, int numarLocuri, Date dataFabricatiei, boolean nou) {
+    public Motocicleta(String producator, float pret, float autonomie_Mile, int numarLocuri, Date dataFabricatiei, boolean nou) {
         this.producator = producator;
         this.pret = pret;
         this.autonomie_Mile = autonomie_Mile;
@@ -34,7 +32,7 @@ public class Elicopter implements Parcelable
         this.nou = nou;
     }
 
-    public Elicopter() {
+    public Motocicleta() {
         this.nou = false;
         this.producator = "necunoscut";
         this.pret = 0.0f;
@@ -44,7 +42,7 @@ public class Elicopter implements Parcelable
     }
 
 
-    protected Elicopter(Parcel in) {
+    protected Motocicleta(Parcel in) {
         producator = in.readString();
         pret = in.readFloat();
         autonomie_Mile = in.readFloat();
@@ -69,15 +67,15 @@ public class Elicopter implements Parcelable
         return 0;
     }
 
-    public static final Creator<Elicopter> CREATOR = new Creator<Elicopter>() {
+    public static final Creator<Motocicleta> CREATOR = new Creator<Motocicleta>() {
         @Override
-        public Elicopter createFromParcel(Parcel in) {
-            return new Elicopter(in);
+        public Motocicleta createFromParcel(Parcel in) {
+            return new Motocicleta(in);
         }
 
         @Override
-        public Elicopter[] newArray(int size) {
-            return new Elicopter[size];
+        public Motocicleta[] newArray(int size) {
+            return new Motocicleta[size];
         }
     };
 
