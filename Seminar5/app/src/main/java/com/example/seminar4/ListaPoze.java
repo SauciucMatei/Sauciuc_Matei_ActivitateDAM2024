@@ -32,7 +32,7 @@ public class ListaPoze extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_lista_poze);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.imagineIV), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.lv_imagini), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -75,7 +75,7 @@ public class ListaPoze extends AppCompatActivity {
                         ListView lv = findViewById(R.id.lv_imagini);
                         ImageAdapter adapter = new ImageAdapter(getApplicationContext(),R.layout.image_adapt,imgItems);
                     }
-                })
+                });
             }
         });
 

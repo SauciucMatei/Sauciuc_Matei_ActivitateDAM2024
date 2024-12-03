@@ -3,11 +3,19 @@ package com.example.seminar4;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Date;
 
-public class Motocicleta implements Parcelable
-{
+@Entity(tableName = "Motociclete")
+public class Motocicleta implements Parcelable {
+
+    @PrimaryKey
+    @NonNull
     private String producator;
+
     private float pret;
     private float autonomie_Mile;
     private int numarLocuri;
@@ -47,7 +55,7 @@ public class Motocicleta implements Parcelable
         pret = in.readFloat();
         autonomie_Mile = in.readFloat();
         numarLocuri = in.readInt();
-        dataFabricatiei=(java.util.Date)in.readSerializable();
+        dataFabricatiei = (java.util.Date) in.readSerializable();
         nou = in.readByte() != 0;
     }
 
@@ -97,6 +105,26 @@ public class Motocicleta implements Parcelable
 
     public Date getDataFabricatiei() {
         return dataFabricatiei;
+    }
+
+    public void setProducator(String producator) {
+        this.producator = producator;
+    }
+
+    public void setPret(float pret) {
+        this.pret = pret;
+    }
+
+    public void setAutonomie_Mile(float autonomie_Mile) {
+        this.autonomie_Mile = autonomie_Mile;
+    }
+
+    public void setNumarLocuri(int numarLocuri) {
+        this.numarLocuri = numarLocuri;
+    }
+
+    public void setDataFabricatiei(Date dataFabricatiei) {
+        this.dataFabricatiei = dataFabricatiei;
     }
 
     @Override

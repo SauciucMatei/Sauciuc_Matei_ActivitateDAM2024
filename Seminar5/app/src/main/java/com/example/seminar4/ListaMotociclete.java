@@ -15,6 +15,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ListaMotociclete extends AppCompatActivity {
 
@@ -34,6 +37,16 @@ public class ListaMotociclete extends AppCompatActivity {
         });
 
         Intent it = getIntent();
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                MotocicleteDatabase motocicleteDatabase = MotocicleteDatabase.getInstance(getApplicationContext());
+                List<Motocicleta> motocicleteDB= motocicleteDatabase.motocicletaDAO().getAll();
+                motociclete=motocicleteDB;
+            }
+        });
         List<Motocicleta> motociclete = it.getParcelableArrayListExtra("motociclete");
         if (motociclete == null) {
             Toast.makeText(this, "Lista de motociclete este goală sau nu a fost primită corect.", Toast.LENGTH_SHORT).show();
