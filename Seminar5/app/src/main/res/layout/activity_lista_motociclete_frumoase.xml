@@ -5,12 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaElicoptere">
+    tools:context=".ListaMotocicleteFrumoase">
 
-    <ListView
-        android:id="@+id/lista"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="32dp"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>

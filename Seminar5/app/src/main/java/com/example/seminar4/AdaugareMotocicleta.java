@@ -3,6 +3,7 @@ package com.example.seminar4;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -12,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
 
@@ -72,8 +76,12 @@ public class AdaugareMotocicleta extends AppCompatActivity {
             DatePicker dp = findViewById(R.id.data);
             Date data = new Date(dp.getYear(), dp.getMonth(), dp.getDayOfMonth());
             Motocicleta motocicleta = new Motocicleta(numeProducator, pret, autonomie, numarLocuri, data, nou);
-
-
+            CheckBox checkBox = findViewById(R.id.firebase);
+            if(checkBox.isChecked()){
+                FirebaseDatabase database = FirebaseDatabase.getInstance("https://ase-dam-e0a89-default-rtdb.europe-west1.firebasedatabase.app/");
+                DatabaseReference referinta = database.getReference(numeProducator);
+                referinta.setValue(motocicleta);
+            }
             it.putExtra("motocicleta", motocicleta);
             setResult(RESULT_OK, it);
             finish();
